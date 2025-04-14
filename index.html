@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Fetch Simples</title>
+</head>
+<body>
+  <h1>Resposta do Servidor:</h1>
+  <div id="resultado">Tomara esteja CERTO...</div>
+
+  <script>
+    // Fazendo a requisição com fetch
+    fetch('dados.php')
+      .then(response => response.json()) // Converte para JSON direto
+      .then(data => {
+        // Mostra o resultado na tela
+        document.getElementById('resultado').innerText = 
+          `Mensagem: ${data.mensagem} | Status: ${data.status}`;
+
+        // Também mostra no console
+        console.log(data);
+      });
+  </script>
+</body>
+</html>
